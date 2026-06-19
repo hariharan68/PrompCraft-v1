@@ -1,0 +1,17 @@
+# PromptCraft backend dependencies
+# Pinned to spec-mandated minimums (FastAPI 0.110+, Pydantic v2, SQLAlchemy 2.x).
+# We use floor pins (>=) so a fresh install picks current compatible releases;
+# this gets locked down in Phase 6.
+
+fastapi>=0.110
+uvicorn[standard]>=0.27          # ASGI server (dev: --reload)
+pydantic>=2.6                    # v2, required by the spec
+pydantic-settings>=2.2          # typed .env -> Settings singleton
+SQLAlchemy>=2.0                 # 2.x ORM/core
+pyodbc>=5.1                     # MSSQL driver bridge (needs ODBC Driver 18 on host)
+alembic>=1.13                   # migrations (used from Phase 1)
+python-dotenv>=1.0             # .env loading helper
+python-jose[cryptography]>=3.3   # JWT encode/decode
+passlib[bcrypt]>=1.7             # bcrypt password hashing
+python-multipart>=0.0.9          # parses the form-urlencoded login body
+email-validator>=2.0             # enables Pydantic EmailStr
